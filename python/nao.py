@@ -62,6 +62,10 @@ class Nao(QtGui.QWidget):
         self.autonomeLevel = 1
         self.lcd.display(self.autonomeLevel)
         self.batteryLevel = 0
+
+        ####Nao FPS
+        self.walk_fps = 0
+        self.head_fps = 0
         
         ##### Init of nao, position and move
         self.is_walking = False
@@ -158,6 +162,13 @@ class Nao(QtGui.QWidget):
             if self.motion  :
                 self.motion.stopMove()
                 self.memory.raiseEvent("PostureAsked", posture_name)
+                if self.name == "Mama":
+                    try:
+                        self.motion.stiffnessInterpolation("Head", 0.0, 0.4)
+                        print "MarieMadelaine stop stiffness head"
+                    except Exception, errorMsg:
+                        print str(errorMsg)
+                
 
         else:
             if self.motion : 
@@ -186,9 +197,9 @@ class Nao(QtGui.QWidget):
             #pour Lucy et Baltzar, afin de d'eviter marche destabilisante
 
             # Lucy debride
-            #if self.name == "Lucy" and Frequency < 0.75 :
-            #    X = X * Frequency
-            #    Frequency = 0.75
+            if self.name == "Lucy" and Frequency < 0.75 :
+                X = X * Frequency
+                Frequency = 0.75
                 
                 print "bridage lucy"
             if self.name == "Baltazar" and Frequency > 0.8:
@@ -230,27 +241,40 @@ class Nao(QtGui.QWidget):
                 self.is_walking = True
             else :
                 self.is_turning = True
-                
-            #Bridage des nao
-            #pour Lucy et Baltzar, afin de d'eviter marche destabilisante
 
-          
-            if self.name == "Lucy" and Frequency < 0.65 :
-                Frequency = 0.65
-                print "bridage lucy"
-            if self.name == "Baltazar" and Frequency > 0.8:
-                Frequency = 0.8
-                print "bridage Baltzar"
+            if self.name == "Lucy":
                 
+                #Bridage FPS pour lucy
+                if (self.walk_fps % 3 == 0 ):
 
-            try:
-                #motion.moveToward( X, Y, Theta, [["Frequency", Frequency]])
-                self.motion.setMoveArmsEnabled(True, True)
-                self.motion.setWalkTargetVelocity( X, Y, Theta, Frequency)
-                
-            except Exception, errorMsg:
-                print str(errorMsg)
-                print " not allowed to walk "
+                    if Frequency < 0.70 :
+                        Frequency = 0.70
+                        print "bridage lucy"
+
+                    try:
+                        self.motion.setMoveArmsEnabled(True, True)
+                        self.motion.moveToward( X, Y, Theta, [["Frequency", Frequency]])
+                        #self.motion.setWalkTargetVelocity( X, Y, Theta, Frequency)
+                        
+                    except Exception, errorMsg:
+                        print str(errorMsg)
+                        print " not allowed to walk "
+                else :
+                    print "Lucy bridage fps"
+
+                self.walk_fps = self.walk_fps + 1
+
+            else :         
+
+
+                try:
+                    self.motion.moveToward( X, Y, Theta, [["Frequency", Frequency]])
+                    #self.motion.setMoveArmsEnabled(True, True)
+                    #self.motion.setWalkTargetVelocity( X, Y, Theta, Frequency)
+                    
+                except Exception, errorMsg:
+                    print str(errorMsg)
+                    print " not allowed to walk "
 
         else:
             if self.is_turning:
@@ -262,6 +286,8 @@ class Nao(QtGui.QWidget):
                 self.is_walking = False
             #motion.stopMove()
             #nao_go_posture("StandInit")
+
+            self.walk_fps = 0
 
 
     def move_head(self, yaw,pitch):
@@ -278,11 +304,32 @@ class Nao(QtGui.QWidget):
 
         fractionMaxSpeed  = 0.35
 
-        try:
-            self.motion.setAngles("HeadYaw",yaw*3.14/180.0, fractionMaxSpeed);
-            self.motion.setAngles("HeadPitch",pitch*3.14/180.0, fractionMaxSpeed);
-        except Exception, errorMsg:
-            print str(errorMsg)
+        if self.name == "Lucy":
+                
+            #Bridage FPS pour lucy
+            if (self.head_fps % 3 == 0 ):
+
+                try:
+                    self.motion.setAngles("HeadYaw",yaw*3.14/180.0, fractionMaxSpeed);
+                    self.motion.setAngles("HeadPitch",pitch*3.14/180.0, fractionMaxSpeed);
+                except Exception, errorMsg:
+                     print str(errorMsg)
+
+            else:
+                print "Lucy head fps"
+
+            self.head_fps = self.head_fps+1
+
+                
+
+        else:
+
+            try:
+                self.motion.setAngles("HeadYaw",yaw*3.14/180.0, fractionMaxSpeed);
+                self.motion.setAngles("HeadPitch",pitch*3.14/180.0, fractionMaxSpeed);
+
+            except Exception, errorMsg:
+                print str(errorMsg)
 
 
         if(not(self.is_headmoving) and (yaw*pitch==0.0)):
@@ -290,6 +337,8 @@ class Nao(QtGui.QWidget):
                 self.motion.stiffnessInterpolation("Head", 0.0, 0.4)
             except Exception, errorMsg:
                 print str(errorMsg)
+
+            self.head_fps = 0;
 
     
             self.is_headmoving = False
@@ -464,7 +513,14 @@ class Nao(QtGui.QWidget):
             
         #Check stiffness status
         self.getStiffness()
-        
+
+        #Stop stiffness for Mama's head
+        if self.name == "Mama":
+            try:
+                self.motion.stiffnessInterpolation("Head", 0.0, 0.01)
+                print "MarieMadelaine stop stiffness head"
+            except Exception, errorMsg:
+                print str(errorMsg)        
         
 
                 

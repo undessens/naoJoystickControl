@@ -63,11 +63,12 @@ class main_ui(QtGui.QWidget):
         self.setLayout(self.layout_main)
         self.show()
 
-        #### Nao Manager #### LUCY PUIS LUCAS PUIS MAMA
+        #### Nao Manager #### LUCAS PUIS MAMA PUIS LUCY
         
-        #self.manager.addNao("Lucy", "10.0.1.13", 9559 )
-        self.manager.addNao("Lucas", "192.168.0.23", 9559 )
-        #self.manager.addNao("MaMa", "10.0.1.12", 9559 )
+        
+        self.manager.addNao("Lucas", "10.0.1.11", 9559 )
+        self.manager.addNao("Mama", "10.0.1.12", 9559 )
+        self.manager.addNao("Lucy", "10.0.1.13", 9559 )
 
         self.manager.init_manager()
     

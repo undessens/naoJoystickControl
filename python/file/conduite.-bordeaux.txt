@@ -1,0 +1,27 @@
+*entre 1er nao 2m00
+*laurena 5m30
+*2e nao 4m00
+*3e nao 5m30 - foret  en declaler -9m
+*lucy arret la foret et chute 7m35
+*ronde10m00
+*lucy avant scene ecorche 17-20
+SELECT 0 1110 0
+POSTURE 0 Stand 0
+*pieta sur tous 20m00
+COMBO 0 PIETA 0
+*danse gracieuse 21m27
+ANIM 0 DANSE 0
+*Mama en manuel se rapproche
+*opera 23m50
+SELECT 0 0010 0
+ANIM 0 OPERA 0
+*Lucy Lucas applaudissent
+SELECT 0 1100 0
+POSTURE 0 Stand 0
+ANIM 0 APPLAUSE 0
+*- - - -
+*- - - -
+*- -FIN 15:04- - 
+*- -FIN - -
+*- - -
+FIN FIN FIN FIN

@@ -58,8 +58,10 @@ class Interpret(QtGui.QWidget):
         self.imgAutoSoft = "images/auto-soft.png"
         self.imgSit = "images/sit.png"
         self.imgStand = "images/stand.png"
+        self.imgForcedStand = "images/forced-stand.png"
         self.imgStandInit = "images/standInit.png"
         self.imgRest = "images/rest.png"
+        self.imgCrouch = "images/crouch.png"
         self.imgRamasser = "images/ramasser.png"
         self.imgReaction = "images/reaction.png"
         self.imgPieta = "images/pieta.png"
@@ -116,10 +118,11 @@ class Interpret(QtGui.QWidget):
         dic1["RB"] = ["SWITCH", 1, 0]
         dic1["LB"] = ["", 1, 0]
         dic1["LB+RB"] = ["UNSELECT_ALL"]
+        #### TODO change when change nao's number and disposition.
         dic1["LB_X"] = ["ADDSELECT", 0, 0]
-        dic1["LB_Y"] = ["ADDSELECT", 3, 0]
-        dic1["LB_B"] = ["ADDSELECT", 1, 0]
-        dic1["LB_A"] = ["ADDSELECT", 2, 0]
+        dic1["LB_Y"] = ["UNSELECT_ALL", 1, 0]
+        dic1["LB_B"] = ["ADDSELECT", 2, 0]
+        dic1["LB_A"] = ["ADDSELECT", 1, 0]
 
         
         #### --1-- BUTTON ###
@@ -139,9 +142,9 @@ class Interpret(QtGui.QWidget):
         dic1["UP_A"] = ["AUTONOMED", 7, 0]
 
         dic1["DOWN_Y"] = ["POSTURE", "Stand", 0]
-        dic1["DOWN_X"] = ["POSTURE", "Rest", 0]
+        dic1["DOWN_X"] = ["POSTURE", "Crouch", 0]
         dic1["DOWN_B"] = ["POSTURE", "StandInit", 0]
-        dic1["DOWN_A"] = ["POSTURE", "Sit", 0]
+        dic1["DOWN_A"] = ["POSTURE", "ForcedStand", 0]
 
         dic1["LEFT_Y"] = ["FPS", -5, 0]
         dic1["LEFT_X"] = ["ANIM", "RONDE2", 0]
@@ -149,9 +152,9 @@ class Interpret(QtGui.QWidget):
         dic1["LEFT_A"] = ["COMBO", "FORET", 0]
 
         ##### --1-- JOYSTICK ####
-        dic1["JOY_MAIN"] = ["WALK"]
+        dic1["UP_JOY_MAIN"] = ["WALK"]
         dic1["LEFT_JOY_MAIN"] = ["WALKSIDE"]
-        dic1["UP_JOY_MAIN"] = ["WALKPREC"]
+        dic1["JOY_MAIN"] = ["WALKPREC"]
         dic1["LT"] = ["TURN"]
         dic1["RT"] = ["TURN"]
         dic1["JOY_SEC"] = ["HEAD"]
@@ -164,10 +167,11 @@ class Interpret(QtGui.QWidget):
         dic2["RB"] = ["SWITCH", 1, 0]
         dic2["LB"] = ["", 1, 0]
         dic2["LB+RB"] = ["UNSELECT_ALL"]
+        #### TODO change when change nao's number and disposition.
         dic2["LB_X"] = ["ADDSELECT", 0, 0]
-        dic2["LB_Y"] = ["ADDSELECT", 3, 0]
-        dic2["LB_B"] = ["ADDSELECT", 1, 0]
-        dic2["LB_A"] = ["ADDSELECT", 2, 0]
+        dic2["LB_Y"] = ["UNSELECT_ALL", 1, 0]
+        dic2["LB_B"] = ["ADDSELECT", 2, 0]
+        dic2["LB_A"] = ["ADDSELECT", 1, 0]
 
         
         #### --2-- BUTTON ###
@@ -189,9 +193,9 @@ class Interpret(QtGui.QWidget):
         dic2["UP_A"] = ["AUTONOMED", 7, 0]
 
         dic2["DOWN_Y"] = ["POSTURE", "Stand", 0]
-        dic2["DOWN_X"] = ["POSTURE", "Rest", 0]
+        dic2["DOWN_X"] = ["POSTURE", "Crouch", 0]
         dic2["DOWN_B"] = ["POSTURE", "StandInit", 0]
-        dic2["DOWN_A"] = ["POSTURE", "Sit", 0]
+        dic2["DOWN_A"] = ["POSTURE", "ForcedStand", 0]
 
         dic2["LEFT_Y"] = ["COMBO","RAMASSER", 0]
         dic2["LEFT_X"] = ["ANIM", "RONDE", 0]
@@ -199,9 +203,9 @@ class Interpret(QtGui.QWidget):
         dic2["LEFT_A"] = ["ANIM", "CIELREVELATION", 0]
 
         ##### --2-- JOYSTICK ####
-        dic2["JOY_MAIN"] = ["WALK"]
+        dic2["UP_JOY_MAIN"] = ["WALK"]
         dic2["LEFT_JOY_MAIN"] = ["WALKSIDE"]
-        dic2["UP_JOY_MAIN"] = ["WALKPREC"]
+        dic2["JOY_MAIN"] = ["WALKPREC"]
         dic2["LT"] = ["TURN"]
         dic2["RT"] = ["TURN"]
         dic2["JOY_SEC"] = ["HEAD"]
@@ -215,10 +219,11 @@ class Interpret(QtGui.QWidget):
         dic3["RB"] = ["SWITCH", 1, 0]
         dic3["LB"] = ["", 1, 0]
         dic3["LB+RB"] = ["UNSELECT_ALL"]
+        #### TODO change when change nao's number and disposition.
         dic3["LB_X"] = ["ADDSELECT", 0, 0]
-        dic3["LB_Y"] = ["ADDSELECT", 3, 0]
-        dic3["LB_B"] = ["ADDSELECT", 1, 0]
-        dic3["LB_A"] = ["ADDSELECT", 2, 0]
+        dic3["LB_Y"] = ["UNSELECT_ALL", 1, 0]
+        dic3["LB_B"] = ["ADDSELECT", 2, 0]
+        dic3["LB_A"] = ["ADDSELECT", 1, 0]
 
         
         #### --3-- BUTTON ###
@@ -240,9 +245,9 @@ class Interpret(QtGui.QWidget):
         dic3["UP_A"] = ["AUTONOMED", 7, 0]
 
         dic3["DOWN_Y"] = ["POSTURE", "Stand", 0]
-        dic3["DOWN_X"] = ["POSTURE", "Rest", 0]
+        dic3["DOWN_X"] = ["POSTURE", "Crouch", 0]
         dic3["DOWN_B"] = ["POSTURE", "StandInit", 0]
-        dic3["DOWN_A"] = ["POSTURE", "Sit", 0]
+        dic3["DOWN_A"] = ["POSTURE", "ForcedStand", 0]
 
         dic3["LEFT_Y"] = ["COMBO","RAMASSER", 0]
         dic3["LEFT_X"] = ["ANIM", "RONDE", 0]
@@ -250,9 +255,9 @@ class Interpret(QtGui.QWidget):
         dic3["LEFT_A"] = ["ANIM", "CIELREVELATION", 0]
 
         ##### --3-- JOYSTICK ####
-        dic3["JOY_MAIN"] = ["WALK"]
+        dic3["UP_JOY_MAIN"] = ["WALK"]
         dic3["LEFT_JOY_MAIN"] = ["WALKSIDE"]
-        dic3["UP_JOY_MAIN"] = ["WALKPREC"]
+        dic3["JOY_MAIN"] = ["WALKPREC"]
         dic3["LT"] = ["TURN"]
         dic3["RT"] = ["TURN"]
         dic3["JOY_SEC"] = ["HEAD"]
@@ -293,7 +298,7 @@ class Interpret(QtGui.QWidget):
     
     def changeView(self, a):
         
-        print a
+        #print a
         if self.current_dic == 0:
         
             if a=="none":
@@ -317,14 +322,15 @@ class Interpret(QtGui.QWidget):
                 self.buttonRight.setPixmap(QtGui.QPixmap(self.imgAutoSoft))
                 self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgAutoFun))
             elif a=="down":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgRest))
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgCrouch))
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgStand))
                 self.buttonRight.setPixmap(QtGui.QPixmap(self.imgStandInit))
-                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgSit))
+                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgForcedStand))
             elif a=="lb":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucy))
+                #self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucy))
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucas))
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgEmpty))
-                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgLucas))
+                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgLucy))
                 self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgMama))  
               
                 
@@ -347,19 +353,20 @@ class Interpret(QtGui.QWidget):
                 self.buttonRight.setPixmap(QtGui.QPixmap(self.imgAutoSoft))
                 self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgAutoFun))
             elif a=="down":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgRest))
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgCrouch))
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgStand))
                 self.buttonRight.setPixmap(QtGui.QPixmap(self.imgStandInit))
-                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgSit))
+                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgForcedStand))
             elif a=="left":
                 self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgRonde))
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgRamasser))
                 self.buttonRight.setPixmap(QtGui.QPixmap(self.imgRonde2))
                 self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgCielRevelation)) 
             elif a=="lb":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucy))
+                #self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucy))
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucas))
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgEmpty))
-                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgLucas))
+                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgLucy))
                 self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgMama))
 
         elif self.current_dic == 1:
@@ -381,19 +388,20 @@ class Interpret(QtGui.QWidget):
                 self.buttonRight.setPixmap(QtGui.QPixmap(self.imgAutoSoft))
                 self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgAutoFun))
             elif a=="down":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgRest))
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgCrouch))
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgStand))
                 self.buttonRight.setPixmap(QtGui.QPixmap(self.imgStandInit))
-                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgSit))
+                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgForcedStand))
             elif a=="left":
                 self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgRonde))
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgRamasser))
                 self.buttonRight.setPixmap(QtGui.QPixmap(self.imgRonde2))
                 self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgCielRevelation)) 
             elif a=="lb":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucy))
+                #self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucy))
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucas))
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgEmpty))
-                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgLucas))
+                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgLucy))
                 self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgMama))
                 
                 

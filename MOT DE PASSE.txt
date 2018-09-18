@@ -1,0 +1,8 @@
+Paramètre du wifi
+
+Wifi :netgear15
+mdp : cloudywindow854
+
+Paramètres du routeur
+login : admin
+mot de passe : password
