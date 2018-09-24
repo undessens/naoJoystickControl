@@ -3,7 +3,11 @@
 from PyQt4 import QtGui, QtCore
 from nao_manager import Nao_manager
 from interpet import Interpret
+#ifdef _WIN32
 from joystick import Joystick
+#elif __APPLE__
+from joystick_osx import Joystick
+#endif
 from storytelling import StoryTelling
 import time
 from numpy import *
@@ -67,8 +71,8 @@ class main_ui(QtGui.QWidget):
         
         
         self.manager.addNao("Lucas", "10.0.1.11", 9559 )
-        self.manager.addNao("Mama", "10.0.1.12", 9559 )
-        self.manager.addNao("Lucy", "10.0.1.13", 9559 )
+        #self.manager.addNao("Mama", "10.0.1.12", 9559 )
+        #self.manager.addNao("Lucy", "10.0.1.13", 9559 )
 
         self.manager.init_manager()
     
