@@ -380,25 +380,25 @@ class Nao_manager(QtGui.QWidget):
         self.sliderWalk_x.setValue(X*100*Speed)
         self.sliderWalk_y.setValue(-Y*100)
     
-    def nao_update_walk_to_point(self,joy_id, X, Y, Theta, Speed):
-    
-        selection = []
-        if joy_id == 1 : 
-            selection = self.selection1
-        elif joy_id == 2 : 
-            selection = self.selection2
-        #All nao selected from 1 and 2
-        elif joy_id == 0:
-            selection = self.selectionGlobal 
-
-        for i in range(len(self.list_of_nao)):
-            if selection[i]:
-                self.list_of_nao[i].update_walk_to_point( X, Y , Theta, Speed)
-
-        print "marche to Point X="+str(X)+" Y="+str(Y)+" Theta="+str(Theta)+" Speed="+str(Speed)+""
-        self.sliderWalk_tetha.setValue(-Theta*100)
-        self.sliderWalk_x.setValue(X*100*Speed)
-        self.sliderWalk_y.setValue(-Y*100)
+##    def nao_update_walk_to_point(self,joy_id, X, Y, Theta, Speed):
+##    
+##        selection = []
+##        if joy_id == 1 : 
+##            selection = self.selection1
+##        elif joy_id == 2 : 
+##            selection = self.selection2
+##        #All nao selected from 1 and 2
+##        elif joy_id == 0:
+##            selection = self.selectionGlobal 
+##
+##        for i in range(len(self.list_of_nao)):
+##            if selection[i]:
+##                self.list_of_nao[i].update_walk_to_point( X, Y , Theta, Speed)
+##
+##        print "marche to Point X="+str(X)+" Y="+str(Y)+" Theta="+str(Theta)+" Speed="+str(Speed)+""
+##        self.sliderWalk_tetha.setValue(-Theta*100)
+##        self.sliderWalk_x.setValue(X*100*Speed)
+##        self.sliderWalk_y.setValue(-Y*100)
 
 
     # update turning head to all selected nao

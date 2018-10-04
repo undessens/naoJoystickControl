@@ -128,12 +128,12 @@ class Interpret(QtGui.QWidget):
         #### --1-- BUTTON ###
         dic1["Y"] = ["ANIM", "TORSION", 0]
         dic1["X"] = ["ANIM", "TRIANGLE", 0]
-        dic1["A"] = ["ANIM","FALLING", 0]
+        dic1["A"] = ["ANIM","PYRAMID", 0]
         dic1["B"] = ["ANIM", "ARABESQUE", 0]
 
-        dic1["RIGHT_Y"] = ["ANIM","COTE", 0]
-        dic1["RIGHT_X"] = ["ANIM", "PYRAMIDE", 0]
-        dic1["RIGHT_A"] = ["ANIM", "SALUTA", 0]
+        dic1["RIGHT_Y"] = ["ANIM","OPERA", 0]
+        dic1["RIGHT_X"] = ["ANIM", "APPLAUSE", 0]
+        dic1["RIGHT_A"] = ["ANIM", "RONDE2", 0]
         dic1["RIGHT_B"] = ["ANIM", "TOUPIE", 0]
 
         dic1["UP_Y"] = ["AUTONOMED", 4, 0]
@@ -146,10 +146,10 @@ class Interpret(QtGui.QWidget):
         dic1["DOWN_B"] = ["POSTURE", "StandInit", 0]
         dic1["DOWN_A"] = ["POSTURE", "ForcedStand", 0]
 
-        dic1["LEFT_Y"] = ["FPS", -5, 0]
-        dic1["LEFT_X"] = ["ANIM", "RONDE2", 0]
-        dic1["LEFT_B"] = ["ANIM", "TAXI", 0]
-        dic1["LEFT_A"] = ["COMBO", "FORET", 0]
+        dic1["LEFT_Y"] = ["ANIM", "ILOVEYOU", 0]
+        dic1["LEFT_X"] = ["ANIM", "CIELREVELATION", 0]
+        dic1["LEFT_B"] = ["ANIM", "YOU", 0]
+        dic1["LEFT_A"] = ["ANIM", "HAPPY", 0]
 
         ##### --1-- JOYSTICK ####
         dic1["UP_JOY_MAIN"] = ["WALK"]
@@ -331,42 +331,6 @@ class Interpret(QtGui.QWidget):
                 self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucas))
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgEmpty))
                 self.buttonRight.setPixmap(QtGui.QPixmap(self.imgLucy))
-                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgMama))  
-              
-                
-        elif self.current_dic == 2:
-        
-            if a=="none":
-        
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgPrendre))
-                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgYou))
-                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgHappy))
-                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgMocker)) 
-            elif a=="right":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgProud))
-                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgILoveYou))
-                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgApplause))
-                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgAnnaToupi))
-            elif a=="up":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgAutoReset))
-                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgAutoCunni))
-                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgAutoSoft))
-                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgAutoFun))
-            elif a=="down":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgCrouch))
-                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgStand))
-                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgStandInit))
-                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgForcedStand))
-            elif a=="left":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgRonde))
-                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgRamasser))
-                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgRonde2))
-                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgCielRevelation)) 
-            elif a=="lb":
-                #self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucy))
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucas))
-                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgEmpty))
-                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgLucy))
                 self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgMama))
 
         elif self.current_dic == 1:
@@ -403,7 +367,43 @@ class Interpret(QtGui.QWidget):
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgEmpty))
                 self.buttonRight.setPixmap(QtGui.QPixmap(self.imgLucy))
                 self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgMama))
+                   
                 
+        elif self.current_dic == 2:
+        
+            if a=="none":
+        
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgPrendre))
+                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgYou))
+                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgHappy))
+                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgMocker)) 
+            elif a=="right":
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgProud))
+                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgILoveYou))
+                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgApplause))
+                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgAnnaToupi))
+            elif a=="up":
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgAutoReset))
+                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgAutoCunni))
+                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgAutoSoft))
+                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgAutoFun))
+            elif a=="down":
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgCrouch))
+                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgStand))
+                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgStandInit))
+                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgForcedStand))
+            elif a=="left":
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgRonde))
+                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgRamasser))
+                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgRonde2))
+                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgCielRevelation)) 
+            elif a=="lb":
+                #self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucy))
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucas))
+                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgEmpty))
+                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgLucy))
+                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgMama))
+
                 
                 
             

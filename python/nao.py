@@ -135,8 +135,8 @@ class Nao(QtGui.QWidget):
             ## Enable head to move
             self.motion.wbEnableEffectorControl("Head", True)
 
-        ## Be start behavior
-        self.restart_behavior()
+        ## Be start behavior - Long and useless
+        #self.restart_behavior()
 
         if self.motion:
             self.motion.rest()
@@ -199,51 +199,51 @@ class Nao(QtGui.QWidget):
         #Crouch,LyingBack,LyingBelly,Sit,SitRelax,Stand,StandInit,StandZero
         ##############
         
-    def update_walk_to_point(self, X, Y, Theta, Speed):
-        
-        if Speed > 0.01 :
-        
-            Frequency = abs(Speed)
-            if X>0 :
-                self.is_walking = True
-            else :
-                self.is_turning = True
-                
-            #Bridage des nao
-            #pour Lucy et Baltzar, afin de d'eviter marche destabilisante
-
-            # Lucy debride
-            if self.name == "Lucy" and Frequency < 0.75 :
-                X = X * Frequency
-                Frequency = 0.75
-                
-                print "bridage lucy"
-            if self.name == "Baltazar" and Frequency > 0.8:
-                Frequency = 0.8
-                print "bridage Baltzar"
-                
-            num = []
-
-            num.append(X)
-            num.append(Y)
-            #Angle in degree
-            num.append(Theta)
-            num.append(Frequency)
-                
-            self.memory.raiseEvent("motion", num)
-                
-
-        else:
-            if self.is_turning:
-                self.motion.moveToward(0,0,0)
-                self.is_turning = False
-
-            if self.is_walking:
-                self.motion.moveToward(0,0,0)
-                self.is_walking = False
-            #motion.stopMove()
-            #nao_go_posture("StandInit")
-        
+##    def update_walk_to_point(self, X, Y, Theta, Speed):
+##        
+##        if Speed > 0.01 :
+##        
+##            Frequency = abs(Speed)
+##            if X>0 :
+##                self.is_walking = True
+##            else :
+##                self.is_turning = True
+##                
+##            #Bridage des nao
+##            #pour Lucy et Baltzar, afin de d'eviter marche destabilisante
+##
+##            # Lucy debride
+##            if self.name == "Lucy" and Frequency < 0.75 :
+##                X = X * Frequency
+##                Frequency = 0.75
+##                
+##                print "bridage lucy"
+##            if self.name == "Baltazar" and Frequency > 0.8:
+##                Frequency = 0.8
+##                print "bridage Baltzar"
+##                
+##            num = []
+##
+##            num.append(X)
+##            num.append(Y)
+##            #Angle in degree
+##            num.append(Theta)
+##            num.append(Frequency)
+##                
+##            self.memory.raiseEvent("motion", num)
+##                
+##
+##        else:
+##            if self.is_turning:
+##                self.motion.moveToward(0,0,0)
+##                self.is_turning = False
+##
+##            if self.is_walking:
+##                self.motion.moveToward(0,0,0)
+##                self.is_walking = False
+##            #motion.stopMove()
+##            #nao_go_posture("StandInit")
+##        
 
 
 
