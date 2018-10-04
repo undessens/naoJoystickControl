@@ -160,10 +160,10 @@ class Nao_manager(QtGui.QWidget):
         #self.layoutManager.addWidget(groupAnimLib)
 
 
-    def addNao(self, name, adresseIP, port ):
+    def addNao(self, name, adresseIP, port, naoqi_ver ):
         #nao management
         naoId = len(self.list_of_nao)
-        nao = Nao(adresseIP, name, naoId)
+        nao = Nao(adresseIP, name, naoId, naoqi_ver)
         self.list_of_nao.append(nao)
         self.selection1.append(False)
         self.selection2.append(False)

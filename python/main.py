@@ -3,11 +3,11 @@
 from PyQt4 import QtGui, QtCore
 from nao_manager import Nao_manager
 from interpet import Interpret
-#ifdef _WIN32
-from joystick import Joystick
-#elif __APPLE__
-from joystick_osx import Joystick
-#endif
+import os
+if os.name == 'nt':
+    from joystick import Joystick
+if os.name == 'mac':
+    from joystick_osx import Joystick
 from storytelling import StoryTelling
 import time
 from numpy import *
@@ -70,9 +70,10 @@ class main_ui(QtGui.QWidget):
         #### Nao Manager #### LUCAS PUIS MAMA PUIS LUCY
         
         
-        self.manager.addNao("Lucas", "10.0.1.11", 9559 )
-        #self.manager.addNao("Mama", "10.0.1.12", 9559 )
-        #self.manager.addNao("Lucy", "10.0.1.13", 9559 )
+        self.manager.addNao("Timide", "10.0.1.20", 9559, 1 )
+        #self.manager.addNao("Lucas", "10.0.1.11", 9559, 2 )
+        #self.manager.addNao("Mama", "10.0.1.12", 9559 , 2)
+        #self.manager.addNao("Lucy", "10.0.1.13", 9559 , 2)
 
         self.manager.init_manager()
     
@@ -86,6 +87,12 @@ class main_ui(QtGui.QWidget):
     
 if __name__ == "__main__":
     import sys
+
+    import os
+    if os.name == 'nt':
+        print "THIS IS WINDOWS PLATFORM"
+    if os.name =='mac':
+        print "THIS IS MAC PLATFORM"    
 
     styleFile = QtCore.QFile("file\styleSheet.txt")
     styleFile.open(styleFile.ReadOnly)

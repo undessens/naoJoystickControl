@@ -5,7 +5,7 @@ from PyQt4 import QtGui, QtCore
 class Nao(QtGui.QWidget):
 
 
-    def __init__(self,robotIP,robotName,robotID, PORT=9559, parent=None):
+    def __init__(self,robotIP,robotName,robotID,naoqi_version, PORT=9559, parent=None):
 
         
         ######### GUI
@@ -62,6 +62,8 @@ class Nao(QtGui.QWidget):
         self.autonomeLevel = 1
         self.lcd.display(self.autonomeLevel)
         self.batteryLevel = 0
+        #naoqi version 1.7 = 1   //// 2.14 = 2
+        self.naoqi = naoqi_version
 
         ####Nao FPS
         self.walk_fps = 0
@@ -74,8 +76,8 @@ class Nao(QtGui.QWidget):
         
         self.init_proxy()
 
-
-        print "creation du nao: "+str(self.id)+ " : "+self.name
+        print "creation du nao: "+str(self.id)+ " : "+self.name+" naoqi : "+str(self.naoqi)
+        
 
     def init_proxy(self)  : 
         
@@ -120,14 +122,15 @@ class Nao(QtGui.QWidget):
 
         if self.motion:
             self.motion.stopMove()
-            self.motion.setStiffnesses("Body", 1.0)
+            #self.motion.setStiffnesses("Body", 1.0)
 
         self.go_posture("Crouch")
         
         ## Enable arms control by Motion algorithm
         if self.motion:
 
-            self.motion.setMoveArmsEnabled(True, True)
+            if(self.naoqi==2):
+                self.motion.setMoveArmsEnabled(True, True)
 
             ## Enable head to move
             self.motion.wbEnableEffectorControl("Head", True)
@@ -146,12 +149,25 @@ class Nao(QtGui.QWidget):
     
     def restart_behavior(self):
     
-        if self.behavior :
-            if self.behavior.isBehaviorInstalled("starter-eb8f6c/behavior_1"):
-                self.behavior.stopAllBehaviors()
-                self.behavior.startBehavior("starter-eb8f6c/behavior_1")
-            else :
-                print "starter-ebf6c - behavior_1 is not installed"
+        behavior_name = ""
+        if self.naoqi == 2:
+            behavior_name = "starter-eb8f6c/behavior_1"
+            if self.behavior :
+                if self.behavior.isBehaviorInstalled(behavior_name):
+                    self.behavior.stopAllBehaviors()
+                    self.behavior.startBehavior(behavior_name)
+                else :
+                    print behavior_name+" is not installed"
+        if self.naoqi == 1:
+            behavior_name = "starter"
+            if self.behavior :
+                if self.behavior.isBehaviorRunning(behavior_name):
+                    print "*******************"
+                    print "STARTER IS RUNNING"
+                    if self.behavior.isBehaviorRunning("joystick_blanca"):
+                        print "JOYSTICK BLANCA IS RUNNING"
+                else :
+                    print behavior_name+" is not installed"
         
 
     ### NOT use . Use of memoryEvent("PostureAsked", name ) instead
@@ -500,10 +516,15 @@ class Nao(QtGui.QWidget):
         #Check behavior running
         
         try:
+            behavior_name =""
+            if self.naoqi==2 :
+                behavior_name = "main_joystick-d361da/behavior_1"
+            if self.naoqi==1:
+                behavior_name ="joystick_blanca"
 
-            if self.behavior.isBehaviorInstalled("main_joystick-d361da/behavior_1"):
+            if self.behavior.isBehaviorInstalled(behavior_name):
                
-                if self.behavior.isBehaviorRunning("main_joystick-d361da/behavior_1"):
+                if self.behavior.isBehaviorRunning(behavior_name):
                     self.radio_connect3.setChecked(QtCore.Qt.Checked)
                 else:
                     self.radio_connect2.setChecked(QtCore.Qt.Checked)
