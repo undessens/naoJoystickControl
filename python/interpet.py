@@ -302,30 +302,35 @@ class Interpret(QtGui.QWidget):
         if self.current_dic == 0:
         
             if a=="none":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgTriangle))
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgTorsion))
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgTriangle))
+                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgPyramide))
                 self.buttonRight.setPixmap(QtGui.QPixmap(self.imgArabesque))
-                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgFalling))
+                
             elif a=="right":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgPyramide))
-                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgCote))
-                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgAnnaToupi))
-                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgSaluta)) 
-            elif a=="left":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgRonde2))
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgOpera))
-                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgTaxi))
-                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgForet))            
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgApplause))
+                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgRonde2))
+                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgAnnaToupi))
+                 
+            elif a=="left":
+                self.buttonTop.setPixmap(QtGui.QPixmap(self.imgILoveYou))
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgCielRevelation))
+                self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgYou)) 
+                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgHappy))
+                           
             elif a=="up":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgAutoReset))
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgAutoCunni))
-                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgAutoSoft))
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgAutoReset))
                 self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgAutoFun))
+                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgAutoSoft))
+                
             elif a=="down":
-                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgCrouch))
                 self.buttonTop.setPixmap(QtGui.QPixmap(self.imgStand))
-                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgStandInit))
+                self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgCrouch))
                 self.buttonBottom.setPixmap(QtGui.QPixmap(self.imgForcedStand))
+                self.buttonRight.setPixmap(QtGui.QPixmap(self.imgStandInit))
+                
             elif a=="lb":
                 #self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucy))
                 self.buttonLeft.setPixmap(QtGui.QPixmap(self.imgLucas))
