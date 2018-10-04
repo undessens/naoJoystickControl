@@ -2,7 +2,7 @@
 import time
 import pygame
 ###### maybe pygame.locals is needed !!!
-#from pygame.locals import *
+from pygame.locals import *
 from PyQt4 import QtGui, QtCore
 import os
 

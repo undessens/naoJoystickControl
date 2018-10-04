@@ -6,7 +6,7 @@ from interpet import Interpret
 import os
 if os.name == 'nt':
     from joystick import Joystick
-if os.name == 'mac':
+if os.name == 'posix':
     from joystick_osx import Joystick
 from storytelling import StoryTelling
 import time
@@ -70,8 +70,8 @@ class main_ui(QtGui.QWidget):
         #### Nao Manager #### LUCAS PUIS MAMA PUIS LUCY
         
         
-        self.manager.addNao("Timide", "10.0.1.20", 9559, 1 )
-        #self.manager.addNao("Lucas", "10.0.1.11", 9559, 2 )
+        #self.manager.addNao("Timide", "10.0.1.20", 9559, 1 )
+        self.manager.addNao("Lucas", "10.0.1.11", 9559, 2 )
         #self.manager.addNao("Mama", "10.0.1.12", 9559 , 2)
         #self.manager.addNao("Lucy", "10.0.1.13", 9559 , 2)
 
