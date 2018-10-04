@@ -6,3 +6,13 @@ mdp : cloudywindow854
 Paramètres du routeur
 login : admin
 mot de passe : password
+
+
+Mot de passe de nao( page web) ( shonen )
+login : nao
+mdp : nao
+
+
+Mot de passe de nao( page web) ( blanca )
+login : nao
+mdp : calentito
