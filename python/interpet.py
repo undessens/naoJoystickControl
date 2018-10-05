@@ -128,7 +128,7 @@ class Interpret(QtGui.QWidget):
         #### --1-- BUTTON ###
         dic1["Y"] = ["ANIM", "TORSION", 0]
         dic1["X"] = ["ANIM", "TRIANGLE", 0]
-        dic1["A"] = ["ANIM","PYRAMID", 0]
+        dic1["A"] = ["ANIM","PYRAMIDE", 0]
         dic1["B"] = ["ANIM", "ARABESQUE", 0]
 
         dic1["RIGHT_Y"] = ["ANIM","OPERA", 0]
@@ -138,8 +138,8 @@ class Interpret(QtGui.QWidget):
 
         dic1["UP_Y"] = ["AUTONOMED", 4, 0]
         dic1["UP_X"] = ["AUTONOMED", 3, 0]
-        dic1["UP_B"] = ["AUTONOMED", 6, 0]
-        dic1["UP_A"] = ["AUTONOMED", 7, 0]
+        dic1["UP_A"] = ["AUTONOMED", 6, 0]
+        dic1["UP_B"] = ["AUTONOMED", 7, 0]
 
         dic1["DOWN_Y"] = ["POSTURE", "Stand", 0]
         dic1["DOWN_X"] = ["POSTURE", "Crouch", 0]
@@ -148,8 +148,8 @@ class Interpret(QtGui.QWidget):
 
         dic1["LEFT_Y"] = ["ANIM", "ILOVEYOU", 0]
         dic1["LEFT_X"] = ["ANIM", "CIELREVELATION", 0]
-        dic1["LEFT_B"] = ["ANIM", "YOU", 0]
-        dic1["LEFT_A"] = ["ANIM", "HAPPY", 0]
+        dic1["LEFT_A"] = ["ANIM", "YOU", 0]
+        dic1["LEFT_B"] = ["ANIM", "HAPPY", 0]
 
         ##### --1-- JOYSTICK ####
         dic1["UP_JOY_MAIN"] = ["WALK"]
